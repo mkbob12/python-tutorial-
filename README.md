@@ -14,7 +14,7 @@ python-tutorial
 
 
 # basic 
-  * session
+  * session 
     
       * 사용자 -> 서버 : 연결 시도
       * 서버 -> 사용자 : 토큰 줌
@@ -25,6 +25,6 @@ python-tutorial
       * login , shopping
       * session을 통해 사용자의 개인 정보를 pop 할 수 있는 것
 
-    * 파이썬 기반 웹 프레임워크 
+ * 파이썬 기반 웹 프레임워크 
       * flask, django
 
