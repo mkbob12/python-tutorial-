@@ -1,0 +1,38 @@
+<!-- /templates/items.html  -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cell-container" style="overflow: auto; max-height: 80vh">
+        <div class="table-responsive">
+            <!-- 마우스 오버 호버 개선 table-hover, table-light -->
+            <table class="table table-hover" id="items">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">type</th>
+                        <th scope="col">name</th>
+                        <th scope="col">unit_price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in pagination.items %}
+                    <tr id={{ item.id }} class="table-light">
+                        <td> <a href="{{ url_for('.item_detail', item_id=item.id) }}">{{ item.id }}</a> </td>
+                        <td> {{ item.type }} </td>
+                        <td> {{ item.name }} </td>
+                        <td> {{ item.unitprice }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% set prev_url = url_for('.items', page_num=pagination.prev_num) %}
+    {% set next_url = url_for('.items', page_num=pagination.next_num) %}
+    {% set page_url = url_for('.items', page_num=pagination.page) %}
+    {% set template_name = '.items' %}
+    {% include 'pagination.html' %}
+
+{% endblock %}

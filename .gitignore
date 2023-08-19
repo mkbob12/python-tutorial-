@@ -1,0 +1,22 @@
+# python compile
+__pycache__
+*.pyc
+
+# data files
+*.csv
+*.sqlite
+*.sqlite3
+*.db
+
+# flask instance files
+instance/
+
+# django project files
+upload/
+migrations/
+
+# project files
+.env
+
+# vscode settings
+.vscode/

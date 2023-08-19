@@ -1,0 +1,36 @@
+<!-- /templates/order_items.html  -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cell-container" style="overflow: auto; max-height: 80vh">
+        <div class="table-responsive">
+            <!-- 마우스 오버 호버 개선 table-hover, table-light -->
+            <table class="table table-hover" id="order_items">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">order_id</th>
+                        <th scope="col">item_id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for order_item in pagination.items %}
+                    <tr id={{ order_item.id }} class="table-light">
+                        <td scope="row">{{ order_item.id }}</td>
+                        <td> <a href="{{ url_for('order.order_detail', order_id=order_item.orderid) }}">{{ order_item.orderid }}</a> </td>
+                        <td> <a href="{{ url_for('item.item_detail', item_id=order_item.itemid) }}">{{ order_item.itemid }}</a> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    {% set prev_url = url_for('.order_items', page_num=pagination.prev_num) %}
+    {% set next_url = url_for('.order_items', page_num=pagination.next_num) %}
+    {% set page_url = url_for('.order_items', page_num=pagination.page) %}
+    {% set template_name = '.order_items' %}
+    {% include 'pagination.html' %}
+
+{% endblock %}
