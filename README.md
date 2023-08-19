@@ -21,7 +21,7 @@ python-tutorial
       * 사용자 : 토큰을 쿠키에 저장
       * 사용자 -> 서버 : 해당 쿠키로 서버에게 보내 인증 성공
         
-    *  session을 어디에서 사용할 수 있는 지
+  *  session을 어디에서 사용할 수 있는 지
         * login , shopping
         * session을 통해 사용자의 개인 정보를 pop 할 수 있는 것
 
